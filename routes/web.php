@@ -8,3 +8,4 @@ Route::get('/', function () {
 });
 
 Route::get('index', [viewsController::class, 'indexView'])->name('indexView');
+Route::get('insertEmployee', [viewsController::class, 'insertEmployeeView'])->name('insertEmployeeView');

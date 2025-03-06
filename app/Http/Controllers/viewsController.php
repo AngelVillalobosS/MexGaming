@@ -9,4 +9,8 @@ class viewsController extends Controller
     public function indexView(){
         return view('index');
     }
+
+    public function insertEmployeeview(){
+        return view('pages.insertEmployee');
+    }
 }
