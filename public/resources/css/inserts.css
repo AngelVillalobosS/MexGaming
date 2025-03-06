@@ -5,6 +5,10 @@
     margin-left: 1rem;
 }
 
+.imgEmployee{
+    height: 15rem;
+    border: #000 1px solid;
+}
 .comboBox {
     appearance: none; /* Elimina el estilo predeterminado */
     -webkit-appearance: none;
@@ -24,7 +28,6 @@
     background-repeat: no-repeat;
     background-size: 15px;
 }
-
 /* Efecto hover y focus */
 .comboBox:hover {
     border-color: #0056b3;
@@ -34,10 +37,4 @@
     outline: none;
     border-color: #004494;
     box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
-}
-
-#picture{
-    display: flexbox;
-    border: red 2px solid;
-    float: left;
 }
