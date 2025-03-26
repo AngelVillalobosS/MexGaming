@@ -8,11 +8,13 @@
 </head>
 
 <body>
-    @include('components.navbar')
-
-    <h1>El pollito pio</h1>
-
-    
+    <header>
+        @include('components.navbar')
+    </header>
+    <main>
+        @yield('content')
+    </main>
+        @include('components.footer')
 </body>
 
 </html>

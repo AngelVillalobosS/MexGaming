@@ -13,4 +13,7 @@ class viewsController extends Controller
     public function insertEmployeeview(){
         return view('pages.insertEmployee');
     }
+    public function insertProyectView(){
+        return view('pages.insertProyect');
+    }
 }
