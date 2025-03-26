@@ -33,12 +33,14 @@
             <td><input type="text" class="txtCell" name="" id=""></td>
         </tr>
         <tr>
+            <div class="uploadImgEmployee">
             <td></td>
             <td></td>
             <td>
                 <img src="{{ asset('resources/images/stock/dftl_employee.png') }}" alt="Imagen del empleado" class="imgEmployee"> <br>
                 <h1>wasa</h1>
             </td>
+            </div>
         </tr>
         <tr>
             <td>Nivel:</td>

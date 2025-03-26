@@ -5,9 +5,13 @@
     margin-left: 1rem;
 }
 
-.imgEmployee{
+/* .imgEmployee{
     height: 15rem;
     border: #000 1px solid;
+} */
+.uploadImgEmployee{
+    position: absolute;
+    float: left;
 }
 .comboBox {
     appearance: none; /* Elimina el estilo predeterminado */

@@ -5,7 +5,7 @@
             <a class="nav-btn" href="{{ url('insertEmployee')}}">Registrar Empleado</a>
             <a class="nav-btn" href="#contact">Registrar Proyectos</a>
             <a class="nav-btn" href="#contact">Reporte de Proyectos</a>
-
+            <link rel="shortcut icon" href="{{asset('assets/images/logo/MexGamingLogo.jpg')}}" type="image/x-icon">
             <h6 class="profile-data">Angel Villalobos</h6>
             <img class="profile-pic" src="{{ asset('resources/images/picprof.jpg') }}" alt="Foto de perfil">
         </div>
