@@ -1,3 +1,5 @@
+@extends('index')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +12,6 @@
 </head>
 
 <body>
-    @include('components.navbar')
-
     <h1>Registro de Empleados</h1>
     <br>
     <table id="t1" class="tableRecords">
@@ -56,3 +56,4 @@
 </body>
 
 </html>
+@stop

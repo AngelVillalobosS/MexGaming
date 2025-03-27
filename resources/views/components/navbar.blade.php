@@ -1,6 +1,8 @@
 <header>
         <div class="topnav">
-            <a class="title" href="{{ url('index')}}">MexGaming</a>
+            <div class="title-container">
+                <a class="title" href="{{ url('index')}}">MexGaming</a>
+            </div>
             <a class="active nav-btn" href="{{ url('index')}}">Inicio</a>
             <a class="nav-btn" href="{{ url('insertEmployee')}}">Registrar Empleado</a>
             <a class="nav-btn" href="#contact">Registrar Proyectos</a>
@@ -9,7 +11,7 @@
             <h6 class="profile-data">Angel Villalobos</h6>
             <img class="profile-pic" src="{{ asset('resources/images/picprof.jpg') }}" alt="Foto de perfil">
         </div>
-    </header>
+</header>
 
     <style>
         body {
@@ -34,7 +36,6 @@
             overflow: hidden;
             background-color: #333;
         }
-
         .title {
             float: left;
             color: #f2f2f2;
