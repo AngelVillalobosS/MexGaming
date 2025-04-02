@@ -3,9 +3,9 @@
 @section('content')
 <div class="container">
     <!-- Encabezado (igual que antes) -->
-
+    <h2 class="form-title">Registrar Empleado</h2>
     <main class="form-wrapper">
-        <h2 class="form-title">Registrar Empleado</h2>
+        
 
         <form class="employee-form" method="POST" action="#">
             @csrf
@@ -223,6 +223,7 @@
     .form-title {
         display: flex;
         align-items: center;
+        padding-left: 1rem;
         gap: 1rem;
         color: var(--primary-color);
         border-bottom: 2px solid var(--border-color);

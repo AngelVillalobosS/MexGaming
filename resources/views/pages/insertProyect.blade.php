@@ -1,9 +1,8 @@
 @extends('index')
 @section('content')
 <title>Registro de Proyecto - MexGaming</title>
-
+<h2 class="registration-title">Registro de Proyecto</h2>
 <section class="project-registration">
-    <h2 class="registration-title">Registro de Proyecto</h2>
     <form action="/proyectos" method="POST" class="registration-form">
         @csrf
 
@@ -41,6 +40,13 @@
 </section>
 
 <style>
+    :root {
+        --primary-color: #2c3e50;
+        --secondary-color: #3498db;
+        --accent-color: #e74c3c;
+        --text-color: #333;
+        --border-color: #bdc3c7;
+    }
     .project-registration {
         max-width: 1200px;
         margin: 2rem auto;
@@ -48,10 +54,13 @@
     }
 
     .registration-title {
-        text-align: center;
-        color: #2c3e50;
-        margin-bottom: 2rem;
-        font-size: 2.2rem;
+        display: flex;
+        align-items: center;
+        padding-left: 1rem;
+        gap: 1rem;
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--border-color);
+        padding-bottom: 1rem;
     }
 
     .registration-form {

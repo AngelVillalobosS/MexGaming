@@ -3,7 +3,7 @@
         <a class="brand" href="{{ url('index')}}">MexGaming</a>
 
         <div class="nav-links">
-            <a class="nav-btn {{ request()->routeIs('indexView') ? 'active' : '' }}" href="{{ route('indexView') }}">Inicio</a>
+            <a class="nav-btn {{ request()->routeIs('homeView') ? 'active' : '' }}" href="{{ route('homeView') }}">Inicio</a>
             <a class="nav-btn {{ request()->routeIs('insertEmployee') ? 'active' : '' }}" href="{{ route('insertEmployee') }}">Registrar Empleado</a>
             <a class="nav-btn {{ request()->routeIs('insertProjects') ? 'active' : '' }}" href="{{ route('insertProjects') }}">Registrar Proyectos</a>
             <a class="nav-btn {{ request()->routeIs('reportProjects') ? 'active' : '' }}" href="{{ route('reportProjects') }}">Reporte de Proyectos</a>
