@@ -1,70 +1,164 @@
 <header>
-        <div class="topnav">
-            <div class="title-container">
-                <a class="title" href="{{ url('index')}}">MexGaming</a>
-            </div>
-            <a class="active nav-btn" href="{{ url('index')}}">Inicio</a>
-            <a class="nav-btn" href="{{ url('insertEmployee')}}">Registrar Empleado</a>
-            <a class="nav-btn" href="#contact">Registrar Proyectos</a>
-            <a class="nav-btn" href="#contact">Reporte de Proyectos</a>
-            <link rel="shortcut icon" href="{{asset('assets/images/logo/MexGamingLogo.jpg')}}" type="image/x-icon">
-            <h6 class="profile-data">Angel Villalobos</h6>
+    <nav class="topnav">
+        <a class="brand" href="{{ url('index')}}">MexGaming</a>
+
+        <div class="nav-links">
+            <a class="nav-btn {{ request()->routeIs('indexView') ? 'active' : '' }}" href="{{ route('indexView') }}">Inicio</a>
+            <a class="nav-btn {{ request()->routeIs('insertEmployee') ? 'active' : '' }}" href="{{ route('insertEmployee') }}">Registrar Empleado</a>
+            <a class="nav-btn {{ request()->routeIs('insertProjects') ? 'active' : '' }}" href="{{ route('insertProjects') }}">Registrar Proyectos</a>
+            <a class="nav-btn {{ request()->routeIs('reportProjects') ? 'active' : '' }}" href="{{ route('reportProjects') }}">Reporte de Proyectos</a>
+        </div>
+
+        <div class="profile-section">
+            <h6 class="profile-name">Angel Villalobos</h6>
             <img class="profile-pic" src="{{ asset('resources/images/picprof.jpg') }}" alt="Foto de perfil">
         </div>
+    </nav>
 </header>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        .profile-data{
-            float: left;
-            color: #ddd;
-            /* border: #04AA6D 1px solid; */
-            width: fit-content;
-            margin-left: 30%;
-            margin-right: 1.2em;
-        }
-        .profile-pic{
-            float: left;
-            vertical-align: middle;
-            height: 6vh;
-            border-radius: 50% 50%;
-        }
+<style>
+    /* Estilos base */
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topnav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2rem;
+        background-color: #333;
+        position: relative;
+    }
+
+    .brand {
+        color: #fff;
+        font-size: 1.5rem;
+        text-decoration: none;
+        padding: 1rem 0;
+        margin-right: 2rem;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    .nav-btn {
+        color: #f2f2f2;
+        text-align: center;
+        padding: 1.5rem 1.2rem;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-btn:hover {
+        background-color: #ddd;
+        color: #333;
+    }
+
+    /* Modificar esta regla */
+    .nav-btn.active {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #fff;
+    }
+
+    .nav-btn.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: #fff;
+        transition: all 0.3s ease;
+    }
+
+    .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-left: auto;
+        padding: 0 1rem;
+    }
+
+    .profile-name {
+        color: #fff;
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    .profile-pic {
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
         .topnav {
-            overflow: hidden;
-            background-color: #333;
-        }
-        .title {
-            float: left;
-            color: #f2f2f2;
-            font-size: 12px;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-            margin-right: 20%;
-            /* border: #04AA6D 1px solid; */
+            flex-wrap: wrap;
+            padding: 1rem;
         }
 
-        .topnav .nav-btn {
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
+        .nav-links {
+            order: 3;
+            width: 100%;
+            justify-content: center;
+            margin-top: 1rem;
         }
 
-        .topnav .nav-btn:hover {
-            background-color: #ddd;
-            color: black;
+        .profile-section {
+            margin-left: 0;
+            order: 2;
         }
 
-        .topnav .nav-btn.active {
-            border-bottom: #fff 2px solid;
-            margin-bottom: 3px;
-            color: white;
+        .brand {
+            order: 1;
         }
-    </style>
+
+        .nav-btn {
+            padding: 1rem 0.8rem;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-links {
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            flex: 1 0 50%;
+            padding: 0.8rem;
+        }
+
+        .profile-name {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleccionar todos los botones de navegación
+        const navButtons = document.querySelectorAll('.nav-btn');
+
+        // Función para manejar el click
+        function handleNavClick(event) {
+            // Remover clase active de todos los botones
+            navButtons.forEach(btn => btn.classList.remove('active'));
+            // Añadir clase active al botón clickeado
+            event.target.classList.add('active');
+        }
+
+        // Añadir event listener a cada botón
+        navButtons.forEach(button => {
+            button.addEventListener('click', handleNavClick);
+        });
+    });
+</script>
