@@ -9,18 +9,19 @@
                 <th>Líder del proyecto</th>
                 <th>Personas asignadas</th>
                 <th>Fecha de inicio</th>
-                <th>Fecha de fin</th>
+                <th>Fecha de entrega</th>
             </tr>
         </thead>
-        @foreach($reporte as $item)
-        <tr>
-            <td>{{ $item->proyecto }}</td>
-            <td>{{ $item->lider }}</td>
-            <td>{{ $item->empleados_asignados }}</td>
-            <td>{{ $item->fecha_inicio->format('d/m/Y') }}</td>
-            <td>{{ $item->fecha_fin->format('d/m/Y') }}</td>
-        </tr>
-        @endforeach
+        <tbody>
+            <!-- Filas de proyectos se insertarían dinámicamente -->
+            <tr>
+                <td>Proyecto Alpha</td>
+                <td>Juan Pérez</td>
+                <td>5</td>
+                <td>2023-01-15</td>
+                <td>2023-06-30</td>
+            </tr>
+        </tbody>
     </table>
 
     <div class="acciones">
