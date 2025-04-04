@@ -47,7 +47,11 @@ class empleadosController extends Controller
         if ($request->hasFile('photo')) {
             $path = $request->file('photo')->store('public/empleados');
             $validated['foto'] = $path;
+        } else {
+            // Ruta de la imagen por defecto
+            $validated['foto'] = 'public/assets/images/stock/dftl_employee.png';
         }
+
 
         // Crear el registro en la base de datos
         empleados::create($validated);

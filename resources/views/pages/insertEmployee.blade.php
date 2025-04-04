@@ -16,22 +16,22 @@
                 <div class="personal-data">
                     <div class="form-group">
                         <label>Nombre:</label>
-                        <input type="text" name="nombre" required>
+                        <input type="text" name="nombre" value="{{ old('nombre')}}" required>
                     </div>
 
                     <div class="form-group">
                         <label>Apellido Paterno:</label>
-                        <input type="text" name="apellido_paterno" required>
+                        <input type="text" name="apellido_paterno" value="{{ old('apellido_paterno')}}" required>
                     </div>
 
                     <div class="form-group">
                         <label>Apellido Materno:</label>
-                        <input type="text" name="apellido_materno">
+                        <input type="text" name="apellido_materno" value="{{ old('apellido_materno')}}">
                     </div>
 
                     <div class="form-group" style="width: 25%;">
                         <label>Edad:</label>
-                        <input type="number" name="edad">
+                        <input type="number" name="edad" value="{{ old('edad')}}" required>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@
                         <select class="role-select" name="role" id="roleSelect" onchange="showSubcategory()">
                             <option value="programador">Programador</option>
                             <option value="diseñador">Diseñador</option>
-                            <option value="ingeniero">Ingeniero de Software</option>
+                            <option value="Ingeniero de Software">Ingeniero de Software</option>
                         </select>
                     </div>
 
@@ -83,7 +83,7 @@
                     <!-- Contenido dinámico según JS -->
                 </div>
             </div>
-
+            <br>
             <!-- Mensaje de exito -->
             @if(session('success'))
             <div class="alert-success">
@@ -125,16 +125,15 @@
         switch (role) {
             case 'programador':
                 content = `
-                    <div class="subcategory-group programming-languages">
+                <div class="subcategory-group programming-languages">
                     <div class="form-group">
                         <label>Lenguaje de Programación:</label>
-                        <div class="custom-select-wrapper">
-                            <select class="tech-select" name="language" onchange="showLanguageDetails()">
+                        <div class="methodology-options">
+                            <select name="language" onchange="showLanguageDetails()">
                                 <option value="java">Java</option>
                                 <option value="python">Python</option>
                                 <option value="lua">LUA</option>
                             </select>
-                            <div class="select-arrow"></div>
                         </div>
                     </div>
                 </div>
@@ -142,19 +141,21 @@
                 break;
             case 'diseñador':
                 content = `
-                <div class="subcategory-group">
+                <div class="subcategory-group programming-languages">
                     <label>Especialización:</label>
-                    <div class="specialization-options">
-                        <label><input type="checkbox" name="especializacion" value="visual"> Visual</label>
-                        <label><input type="checkbox" name="especializacion" value="ux"> UX</label>
-                        <label><input type="checkbox" name="especializacion" value="narrativo"> Narrativo</label>
-                    </div>
+                    <div class="methodology-options">
+                            <select name="especializacion[]">
+                                <option value="visual">Visual</option>
+                                <option value="ux">UX</option>
+                                <option value="narrativo">Narrativo</option>
+                            </select>
+                        </div>
                 </div>`;
                 break;
 
-            case 'ingeniero':
+            case 'Ingeniero de Software':
                 content = `
-                <div class="subcategory-group">
+                <div class="subcategory-group programming-languages">
                     <label>Metodologías:</label>
                     <div class="methodology-options">
                         <select name="metodologia">
