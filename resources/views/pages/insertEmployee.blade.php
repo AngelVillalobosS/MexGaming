@@ -5,9 +5,9 @@
     <!-- Encabezado (igual que antes) -->
     <h2 class="form-title">Registrar Empleado</h2>
     <main class="form-wrapper">
-        
 
-        <form class="employee-form" method="POST" action="#">
+
+        <form class="employee-form" method="POST" action="{{ route('empleados.store') }}" enctype="multipart/form-data">
             @csrf
 
             <!-- Sección modificada: Campos a la izquierda + Imagen derecha -->
@@ -27,6 +27,11 @@
                     <div class="form-group">
                         <label>Apellido Materno:</label>
                         <input type="text" name="apellido_materno">
+                    </div>
+
+                    <div class="form-group" style="width: 25%;">
+                        <label>Edad:</label>
+                        <input type="number" name="edad">
                     </div>
                 </div>
 
@@ -65,7 +70,7 @@
 
                     <div class="form-group">
                         <label>Nivel:</label>
-                        <select class="level-select" name="level">
+                        <select class="level-select" name="nivel">
                             <option value="junior">Junior</option>
                             <option value="semi-senior">Semi-Senior</option>
                             <option value="senior">Senior</option>
@@ -79,13 +84,21 @@
                 </div>
             </div>
 
+            <!-- Mensaje de exito -->
+            @if(session('success'))
+            <div class="alert-success">
+                <i class="fas fa-check-circle"></i> {{ session('success') }}
+            </div>
+            @endif
+
+
             <!-- Acciones -->
             <div class="form-actions">
-                <button type="button" class="btn-print">
-                    <i class="fas fa-print"></i> Imprimir
+                <button type="submit" class="btn-print">
+                    <i class="fas fa-print"></i> Guardar
                 </button>
                 <button type="reset" class="btn-secondary">
-                    <i class="fas fa-undo"></i> Regresar
+                    <i class="fas fa-undo"></i> Limpiar
                 </button>
             </div>
         </form>
@@ -132,9 +145,9 @@
                 <div class="subcategory-group">
                     <label>Especialización:</label>
                     <div class="specialization-options">
-                        <label><input type="checkbox" name="especializacion[]" value="visual"> Visual</label>
-                        <label><input type="checkbox" name="especializacion[]" value="ux"> UX</label>
-                        <label><input type="checkbox" name="especializacion[]" value="narrativo"> Narrativo</label>
+                        <label><input type="checkbox" name="especializacion" value="visual"> Visual</label>
+                        <label><input type="checkbox" name="especializacion" value="ux"> UX</label>
+                        <label><input type="checkbox" name="especializacion" value="narrativo"> Narrativo</label>
                     </div>
                 </div>`;
                 break;
@@ -253,7 +266,8 @@
 
     #previewPhoto {
         width: 100%;
-        max-width: 200px;
+        max-width: 190px;
+        max-height: 221px;
         height: auto;
         border-radius: 4px;
         margin-bottom: 1rem;
@@ -572,6 +586,23 @@
         border-color: #3498db;
         box-shadow: 0 2px 8px rgba(52, 152, 219, 0.1);
     }
+
+    .alert-success {
+        background: #e8f5e9;
+        /* Fondo verde suave */
+        border: 1px solid #81c784;
+        /* Borde verde */
+        color: #2e7d32;
+        /* Texto en verde oscuro */
+        padding: 1rem;
+        border-radius: 6px;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+    }
+
 
     /* Versión responsive */
     @media (max-width: 768px) {
