@@ -18,7 +18,4 @@ class viewsController extends Controller
     public function insertProjectsView(){
         return view('pages.insertProyect');
     }
-    public function reportProjectsView(){
-        return view('pages.reportProjects');
-    }
 }

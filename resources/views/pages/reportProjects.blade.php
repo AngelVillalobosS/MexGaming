@@ -13,14 +13,15 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Filas de proyectos se insertarían dinámicamente -->
+            @foreach($proyectos as $pro)
             <tr>
-                <td>Proyecto Alpha</td>
-                <td>Juan Pérez</td>
-                <td>5</td>
-                <td>2023-01-15</td>
-                <td>2023-06-30</td>
+                <td>{{ $pro->proyecto }}</td>
+                <td>{{ $pro->lider }}</td>
+                <td>{{ $pro->empleados_asignados }}</td>
+                <td>{{ $pro->fecha_inicio }}</td>
+                <td>{{ $pro->fecha_fin }}</td>
             </tr>
+            @endforeach
         </tbody>
     </table>
 
