@@ -34,14 +34,32 @@
             <label for="lider">Líder del Proyecto:</label>
             <select name="lider" id="lider" required>
                 <option value="" disabled selected hidden class="placeholder-option">Selecciona un líder</option>
-                <option value="wasa">Wasa</option>
+                @foreach($empleados as $empleado)
+                <option value="{{$empleado->id_empleado}}">{{$empleado->nombre}} {{$empleado->apellido_paterno}} {{$empleado->apellido_materno}}</option>
+                @endforeach
                 <!-- opciones con Foreach -->
             </select>
         </div>
-
+        <!-- Tarjeta del líder -->
+        <div id="leader-card-container" style="display: none;">
+            <div class="leader-card">
+                <div class="leader-photo">
+                    <img id="leader-photo" alt="Foto del líder">
+                </div>
+                <div class="leader-info">
+                    <h4 id="leader-name"></h4>
+                    <p>Cargo: <span id="leader-rol"></span></p>
+                    <p>Edad: <span id="leader-edad"></span> años</p>
+                    <p>Nivel: <span id="leader-nivel"></span></p>
+                </div>
+            </div>
+        </div>
         <div class="form-group full-width">
             <button type="submit" class="submit-btn">Registrar Proyecto</button>
         </div>
     </form>
 </section>
+
+<script>
+</script>
 @endsection

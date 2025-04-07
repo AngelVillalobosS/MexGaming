@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\empleadosController;
+use App\Http\Controllers\proyectosController;
 use App\Http\Controllers\reporteController;
 use App\Http\Controllers\viewsController;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,7 @@ Route::get('index', [viewsController::class, 'indexView'])->name('indexView');
 Route::get('home', [viewsController::class, 'homeView'])->name('homeView');
 Route::get('/empleado/registrar', [viewsController::class, 'insertEmployeeview'])->name('insertEmployee');
 Route::get('insertProjects', [viewsController::class, 'insertProjectsView'])->name('insertProjects');
+Route::get('/registrar_proyectos', [proyectosController::class, 'create'])->name('create.project');
 Route::get('/reporte_proyectos', [reporteController::class, 'index'])->name('reportProjects');
 
 // Rutas Post

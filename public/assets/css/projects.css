@@ -1,10 +1,87 @@
+/* Variables globales */
 :root {
     --primary-color: #2c3e50;
     --secondary-color: #3498db;
     --accent-color: #e74c3c;
     --text-color: #333;
     --border-color: #bdc3c7;
+    --background-light: #f8f9fa;
 }
+
+/* Estilos base del sistema */
+.system-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.system-name {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.system-url {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #bdc3c7;
+}
+
+/* Layout principal */
+.registration-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+/* Panel de perfil de usuario */
+.user-profile {
+    position: sticky;
+    top: 1rem;
+    height: fit-content;
+    background: var(--background-light);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-card h3 {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+}
+
+.profile-info {
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+}
+
+.previous-projects h4 {
+    margin: 0 0 1rem 0;
+    color: var(--primary-color);
+}
+
+.previous-projects ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.previous-projects li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Formulario de registro */
 .project-registration {
     max-width: 1200px;
     margin: 2rem auto;
@@ -28,6 +105,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Componentes del formulario */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -49,13 +127,6 @@
     transition: border-color 0.3s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #3498db;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
-}
-
 .form-group textarea {
     resize: vertical;
     min-height: 120px;
@@ -65,6 +136,84 @@
     display: grid;
     gap: 1.5rem;
     grid-template-columns: 1fr;
+}
+
+.select-group.full-width {
+    position: relative;
+}
+
+.select-group.full-width select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background: white;
+    appearance: none;
+    -webkit-appearance: none;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+}
+
+/* Tarjetas de líderes */
+.leaders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.leader-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.leader-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.leader-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.leader-info {
+    flex-grow: 1;
+}
+
+.leader-info h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.leader-info p {
+    margin: 0.2rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Botones y acciones */
+.nav-button {
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 .submit-btn {
@@ -80,57 +229,64 @@
     font-weight: 600;
 }
 
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.add-employee-btn {
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Estados y efectos */
+.leader-card:hover {
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.leader-card.selected {
+    border-color: var(--secondary-color);
+    background-color: #f0f8ff;
+}
+
+.nav-button:hover {
+    background: #2980b9;
+}
+
 .submit-btn:hover {
     background: #2980b9;
 }
-.select-group.full-width select {
-    width: 100%;
-    padding: 0.8rem;
-    border: 2px solid var(--border-color);
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-    background: white;
-    appearance: none;
-    -webkit-appearance: none;
-    color: var(--text-color);
-    margin-bottom: 2rem;
+
+.add-employee-btn:hover {
+    background: #c0392b;
 }
 
+.form-group input:focus,
+.form-group textarea:focus,
 .select-group.full-width select:focus {
-    border-color: var(--secondary-color);
+    border-color: #3498db;
     outline: none;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
 
-/* Estilo adicional para el contenedor del select */
-.select-group.full-width {
-    position: relative;
-}
-
-.select-group.full-width::after {
-    margin-bottom: 1rem;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-30%);
-    color: var(--primary-color);
-    pointer-events: none;
-}
-
-/* Estilo para el placeholder */
-select:required:invalid {
-    color: #95a5a6;
-}
-
-.placeholder-option {
-    color: #bdc3c7;
-    font-style: italic;
-}
-
-/* Mantener estilo cuando hay selección válida */
-select:valid {
-    color: var(--text-color);
+/* Media Queries */
+@media (max-width: 1024px) {
+    .registration-container {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .user-profile {
+        position: static;
+        margin-top: 2rem;
+    }
 }
 
 @media (min-width: 768px) {
@@ -158,4 +314,28 @@ select:valid {
     .form-group {
         margin-bottom: 2rem;
     }
+}
+
+/* Utilidades y estados especiales */
+select:required:invalid {
+    color: #95a5a6;
+}
+
+.placeholder-option {
+    color: #bdc3c7;
+    font-style: italic;
+}
+
+select:valid {
+    color: var(--text-color);
+}
+
+.select-group.full-width::after {
+    margin-bottom: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-30%);
+    color: var(--primary-color);
+    pointer-events: none;
 }
